@@ -1,0 +1,617 @@
+{
+  "info": {
+    "title": "Partners",
+    "description": "",
+    "contact": {
+      "name": "The API Practice"
+    },
+    "license": {
+      "name": "Private"
+    },
+    "version": "1.0.0.14"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Partners"
+        ],
+        "summary": "Lists the partners",
+        "description": "",
+        "operationId": "listPartners",
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "title": "",
+              "type": "object",
+              "properties": {
+                "total": {
+                  "title": "Total items",
+                  "minimum": 1,
+                  "type": "integer",
+                  "example": 10
+                },
+                "items": {
+                  "title": "Items",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/PartnerModel"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      },
+      "post": {
+        "tags": [
+          "Partners"
+        ],
+        "summary": "Create partner",
+        "description": "",
+        "operationId": "createPartner",
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PartnerModel"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "title": "Partner Model",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "title": "Partner Name",
+                  "type": "string",
+                  "example": "The API Practice  "
+                },
+                "partnerCode": {
+                  "title": "Partner Code",
+                  "maxLength": 10,
+                  "minLength": 2,
+                  "type": "string",
+                  "example": "TAPIP"
+                },
+                "contactFirstName": {
+                  "title": "Contact First Name",
+                  "type": "string",
+                  "example": "David"
+                },
+                "contactLastName": {
+                  "title": "Contact Last Name",
+                  "type": "string",
+                  "example": "Yonan"
+                },
+                "contactPhone": {
+                  "title": "Contact Phone",
+                  "type": "string",
+                  "example": "0928332132"
+                },
+                "contactEmail": {
+                  "title": "Contact Email",
+                  "type": "string",
+                  "example": "david@theapipractice.com"
+                },
+                "country": {
+                  "title": "Country",
+                  "type": "string",
+                  "example": "AU"
+                }
+              }
+            }
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/{id}": {
+      "get": {
+        "tags": [
+          "Partners"
+        ],
+        "summary": "Get Partner by ID",
+        "description": "",
+        "operationId": "getPartnerById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PartnerModel"
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      },
+      "put": {
+        "tags": [
+          "Partners"
+        ],
+        "summary": "Update Partner by ID",
+        "description": "",
+        "operationId": "updatePartnerById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "title": "Partner Model",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "title": "Partner Name",
+                  "type": "string",
+                  "example": "The API Practice  "
+                },
+                "partnerCode": {
+                  "title": "Partner Code",
+                  "maxLength": 10,
+                  "minLength": 2,
+                  "type": "string",
+                  "example": "TAPIP"
+                },
+                "contactFirstName": {
+                  "title": "Contact First Name",
+                  "type": "string",
+                  "example": "David"
+                },
+                "contactLastName": {
+                  "title": "Contact Last Name",
+                  "type": "string",
+                  "example": "Yonan"
+                },
+                "contactPhone": {
+                  "title": "Contact Phone",
+                  "type": "string",
+                  "example": "0928332132"
+                },
+                "contactEmail": {
+                  "title": "Contact Email",
+                  "type": "string",
+                  "example": "david@theapipractice.com"
+                },
+                "country": {
+                  "title": "Country",
+                  "type": "string",
+                  "example": "AU"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PartnerModel_v8"
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "post": {
+        "tags": [
+          "Partners"
+        ],
+        "summary": "Delete by Id",
+        "description": "",
+        "operationId": "deleteById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "title": "",
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "title": "",
+              "type": "object"
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/{id}/clients": {
+      "get": {
+        "tags": [
+          "Partners"
+        ],
+        "summary": "Get clients by partner id",
+        "description": "",
+        "operationId": "getClientsByPartnerId",
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "title": "",
+              "type": "object",
+              "properties": {
+                "total": {
+                  "title": "Total",
+                  "type": "string",
+                  "example": "10"
+                },
+                "items": {
+                  "title": "Items",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/ClientModel"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/code/{partnerCode}": {
+      "get": {
+        "tags": [
+          "Partners"
+        ],
+        "summary": "Get by code",
+        "description": "",
+        "operationId": "getByCode",
+        "parameters": [
+          {
+            "name": "partnerCode",
+            "in": "path",
+            "required": true,
+            "minLength": 2,
+            "maxLength": 10,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PartnerModel"
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ]
+      }
+    }
+  },
+  "swagger": "2.0",
+  "basePath": "/%7Bprotocol%7D:/api.flowstep.dev%7BbasePath%7D",
+  "definitions": {
+    "PartnerModel": {
+      "title": "Partner Model",
+      "type": "object",
+      "properties": {
+        "partnerId": {
+          "title": "Partner Id",
+          "type": "string",
+          "example": "d116db0d-d785-418d-8fad-75d33f221540"
+        },
+        "name": {
+          "title": "Partner Name",
+          "type": "string",
+          "example": "The API Practice  "
+        },
+        "partnerCode": {
+          "title": "Partner Code",
+          "maxLength": 10,
+          "minLength": 2,
+          "type": "string",
+          "example": "TAPIP"
+        },
+        "contactFirstName": {
+          "title": "Contact First Name",
+          "type": "string",
+          "example": "David"
+        },
+        "contactLastName": {
+          "title": "Contact Last Name",
+          "type": "string",
+          "example": "Yonan"
+        },
+        "contactPhone": {
+          "title": "Contact Phone",
+          "type": "string",
+          "example": "0928332132"
+        },
+        "contactEmail": {
+          "title": "Contact Email",
+          "type": "string",
+          "example": "david@theapipractice.com"
+        },
+        "country": {
+          "title": "Country",
+          "type": "string",
+          "example": "AU"
+        },
+        "numberOfClients": {
+          "title": "Number Of Clients",
+          "type": "integer",
+          "example": 4
+        },
+        "createdBy": {
+          "title": "Created By",
+          "type": "string",
+          "example": "Khai Nguyen"
+        },
+        "createdDate": {
+          "title": "Created Date",
+          "type": "string",
+          "example": "2020-09-20"
+        },
+        "updatedBy": {
+          "title": "Updated By",
+          "type": "string",
+          "example": "Khai Nguyen"
+        },
+        "updatedDate": {
+          "title": "Updated Date",
+          "type": "string",
+          "example": "2020-09-20"
+        }
+      }
+    },
+    "PartnerModel_v8": {
+      "title": "Partner Model",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string",
+          "example": "d116db0d-d785-418d-8fad-75d33f221540"
+        },
+        "name": {
+          "title": "Partner Name",
+          "type": "string",
+          "example": "The API Practice  "
+        },
+        "partnerCode": {
+          "title": "Partner Code",
+          "maxLength": 10,
+          "minLength": 2,
+          "type": "string",
+          "example": "TAPIP"
+        },
+        "contactFirstName": {
+          "title": "Contact First Name",
+          "type": "string",
+          "example": "David"
+        },
+        "contactLastName": {
+          "title": "Contact Last Name",
+          "type": "string",
+          "example": "Yonan"
+        },
+        "contactPhone": {
+          "title": "Contact Phone",
+          "type": "string",
+          "example": "0928332132"
+        },
+        "contactEmail": {
+          "title": "Contact Email",
+          "type": "string",
+          "example": "david@theapipractice.com"
+        },
+        "country": {
+          "title": "Country",
+          "type": "string",
+          "example": "AU"
+        },
+        "numberOfOrganizations": {
+          "title": "Number of Organizations",
+          "type": "integer",
+          "example": 1
+        },
+        "numberOfProjects": {
+          "title": "Number of Projects",
+          "type": "integer",
+          "example": 5
+        },
+        "createdDate": {
+          "title": "Created Date",
+          "type": "string",
+          "example": "2020-09-20"
+        },
+        "updatedDate": {
+          "title": "Updated Date",
+          "type": "string",
+          "example": "2020-09-20"
+        },
+        "createdBy": {
+          "title": "Created By",
+          "type": "string",
+          "example": "Khai Nguyen"
+        },
+        "updatedBy": {
+          "title": "Updated By",
+          "type": "string",
+          "example": "Khai Nguyen"
+        }
+      }
+    },
+    "ClientModel": {
+      "title": "Client Model",
+      "type": "object",
+      "properties": {
+        "clientId": {
+          "title": "Client Id",
+          "type": "string",
+          "example": "5bc9572c-3ab4-42b8-a43a-384a65292bc8"
+        },
+        "name": {
+          "title": "Client Name",
+          "type": "string",
+          "example": "Flow Step"
+        },
+        "contactFirstName": {
+          "title": "Contact First Name",
+          "type": "string",
+          "example": "David"
+        },
+        "contactLastName": {
+          "title": "Contact Last Name",
+          "type": "string",
+          "example": "Yonan"
+        },
+        "contactPhone": {
+          "title": "Contact Phone",
+          "type": "string",
+          "example": "0928332132"
+        },
+        "contactEmail": {
+          "title": "Contact Email",
+          "type": "string",
+          "example": "david@theapipractice.com"
+        },
+        "domainNameUrl": {
+          "title": "Domain Name Url",
+          "type": "string",
+          "example": "http://flowstep.com"
+        },
+        "country": {
+          "title": "Country",
+          "type": "string",
+          "example": "AU"
+        },
+        "clientCode": {
+          "title": "Client Code",
+          "type": "string",
+          "example": "FS"
+        },
+        "partnerId": {
+          "title": "Partner Id",
+          "type": "string",
+          "example": "d116db0d-d785-418d-8fad-75d33f221540"
+        },
+        "numberOfOrganizations": {
+          "title": "Number of Organizations",
+          "type": "integer",
+          "example": 1
+        },
+        "numberOfProjects": {
+          "title": "Number of Projects",
+          "type": "integer",
+          "example": 5
+        },
+        "createdDate": {
+          "title": "Created Date",
+          "type": "string",
+          "example": "2020-09-20"
+        },
+        "updatedDate": {
+          "title": "Updated Date",
+          "type": "string",
+          "example": "2020-09-20"
+        },
+        "createdBy": {
+          "title": "Created By",
+          "type": "string",
+          "example": "Khai Nguyen"
+        },
+        "updatedBy": {
+          "title": "Updated By",
+          "type": "string",
+          "example": "Khai Nguyen"
+        }
+      }
+    }
+  },
+  "x-components": {}
+}
